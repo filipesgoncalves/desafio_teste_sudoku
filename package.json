@@ -1,0 +1,12 @@
+{
+  "name": "desafio-teste-sudoku",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Casos de teste em Jest que simulam o jogo e impõem toda a regra de negócio",
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
