@@ -327,6 +327,13 @@ describe('Jogadas', () => {
     expect(jogo.grade[0][1]).toBeNull();
   });
 
+  test('repetir o mesmo valor na célula também conta como jogada', () => {
+    const jogo = new SudokuBinario(ENUNCIADO);
+    jogo.jogar(0, 1, 0);
+    jogo.jogar(0, 1, 0);
+    expect(jogo.jogadas).toBe(2);
+  });
+
   test('jogada recusada não altera a grade nem conta como jogada', () => {
     const jogo = new SudokuBinario(vazia());
     jogo.jogar(0, 0, 1);
@@ -404,6 +411,16 @@ describe('Vitória', () => {
     expect(jogo.estado).toBe('resolvido');
     expect(() => jogo.jogar(5, 5, 1)).toThrow('O jogo já terminou');
     expect(() => jogo.dica()).toThrow('O jogo já terminou');
+  });
+
+  test('depois de resolvido nenhuma célula pode ser apagada', () => {
+    const quase = copiarGrade(SOLUCAO);
+    quase[5][5] = null;
+    const jogo = new SudokuBinario(quase);
+    jogo.jogar(5, 5, 0);
+    expect(() => jogo.apagar(5, 5)).toThrow('O jogo já terminou');
+    expect(jogo.grade[5][5]).toBe(0);
+    expect(jogo.estado).toBe('resolvido');
   });
 });
 
