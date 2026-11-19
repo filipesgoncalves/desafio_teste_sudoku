@@ -53,7 +53,7 @@ O arquivo tem três partes:
 | Regra: linhas e colunas não se repetem | Completar linha ou coluna igual a outra é recusado, linhas incompletas parecidas são permitidas |
 | Jogadas | Célula fixa é protegida, só aceita 0 ou 1, posição fora da grade, trocar e apagar, jogada recusada não altera nada |
 | Resolução | O enunciado tem solução única, a solução obedece às regras, a grade vazia tem várias soluções, enunciado sem saída, dica certa e dica em beco sem saída |
-| Vitória | Preencher tudo resolve o jogo, nada é aceito depois |
+| Vitória | Preencher tudo resolve o jogo, enunciado já completo começa resolvido, nada é aceito depois |
 | Partida simulada | Jogador resolve só com dicas, jogador erra, tem a jogada recusada, corrige e termina, mapa em texto da grade |
 
 Cada teste monta a própria partida, faz as jogadas e confere a grade, o estado (`jogando` ou `resolvido`) e as mensagens de erro das jogadas proibidas.
@@ -61,3 +61,4 @@ Cada teste monta a própria partida, faz as jogadas e confere a grade, o estado 
 ## Colaborador
 
 - Filipe ([filipesgoncalves](https://github.com/filipesgoncalves))
+- Thiago ([Chizuli](https://github.com/Chizuli))
