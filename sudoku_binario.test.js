@@ -111,7 +111,7 @@ class SudokuBinario {
     this.grade = copiarGrade(enunciado);
     this.fixas = enunciado.map((linha) => linha.map((v) => v !== null));
     this.jogadas = 0;
-    this.estado = 'jogando'; // 'jogando' | 'resolvido'
+    this.estado = this.vazias === 0 ? 'resolvido' : 'jogando'; // 'jogando' | 'resolvido'
   }
 
   get vazias() {
@@ -387,6 +387,13 @@ describe('Vitória', () => {
     expect(jogo.vazias).toBe(0);
     expect(jogo.estado).toBe('resolvido');
     expect(jogo.grade).toEqual(SOLUCAO);
+  });
+
+  test('enunciado já completo e válido começa resolvido', () => {
+    const jogo = new SudokuBinario(SOLUCAO);
+    expect(jogo.vazias).toBe(0);
+    expect(jogo.estado).toBe('resolvido');
+    expect(() => jogo.dica()).toThrow('O jogo já terminou');
   });
 
   test('depois de resolvido nenhuma jogada é aceita', () => {
